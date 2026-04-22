@@ -1,14 +1,17 @@
+using Alteruna.Multiplayer;
+using Alteruna.Multiplayer.Core;
+
 namespace Alteruna
 {
-    public class SetEnableStatusOnPossession : CommunicationBridge
-    {
-        public bool EnableStatusForOwner = true;
-        
-        public override void Possessed(bool isMe, User user)
-        {
-            if (!isMe) EnableStatusForOwner = !EnableStatusForOwner;
-            
-            gameObject.SetActive(EnableStatusForOwner);
-        }
-    }
+	public class SetEnableStatusOnPossession : CommunicationBridge
+	{
+		public bool EnableStatusForOwner = true;
+
+		public override void Possessed(bool isMe, User user)
+		{
+			if (!isMe) EnableStatusForOwner = !EnableStatusForOwner;
+
+			gameObject.SetActive(EnableStatusForOwner);
+		}
+	}
 }

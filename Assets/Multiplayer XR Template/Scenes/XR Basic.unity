@@ -38,7 +38,6 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.59937525, g: 0.5997512, b: 0.59948856, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -154,7 +153,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b78b6c6b70c0a8f4c9b48bde21200a0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Multiplayer: {fileID: 496211629}
+  Multiplayer: {fileID: 0}
 --- !u!4 &45175569
 Transform:
   m_ObjectHideFlags: 0
@@ -888,7 +887,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 496211630}
-  - component: {fileID: 496211629}
+  - component: {fileID: 496211631}
   m_Layer: 0
   m_Name: Multiplayer
   m_TagString: Untagged
@@ -896,7 +895,22 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &496211629
+--- !u!4 &496211630
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 496211628}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &496211631
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -905,7 +919,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 496211628}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 1777794829, guid: 0ae8d181602a00248a82f64a684a1c88, type: 3}
+  m_Script: {fileID: 731237287, guid: 0ae8d181602a00248a82f64a684a1c88, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   LogLevel: 4
@@ -925,13 +939,17 @@ MonoBehaviour:
   - Name: Max
     NetLOD: 4
     Users: 
-  _maxPlayers: 10
+  _maxPlayers: 20
+  ConnectOnStart: 1
   AvatarSpawning: 1
   AvatarPrefab: {fileID: 1816882170521302894, guid: 75d3350bf46111345a2122e4e209fa27,
     type: 3}
   AvatarSpawnLocation: {fileID: 0}
   SpawnAvatarPerIndex: 0
   AvatarSpawnLocations: []
+  OnStarted:
+    m_PersistentCalls:
+      m_Calls: []
   OnConnected:
     m_PersistentCalls:
       m_Calls: []
@@ -939,6 +957,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   OnNetworkError:
+    m_PersistentCalls:
+      m_Calls: []
+  OnRoomCreated:
     m_PersistentCalls:
       m_Calls: []
   OnRoomJoined:
@@ -1028,6 +1049,9 @@ MonoBehaviour:
   OnForceSynced:
     m_PersistentCalls:
       m_Calls: []
+  OnForceSync:
+    m_PersistentCalls:
+      m_Calls: []
   OnRpcReceived:
     m_PersistentCalls:
       m_Calls: []
@@ -1035,6 +1059,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   OnRpcRegistered:
+    m_PersistentCalls:
+      m_Calls: []
+  OnForceSyncReply:
     m_PersistentCalls:
       m_Calls: []
   DevClientIndex: 0
@@ -1050,22 +1077,6 @@ MonoBehaviour:
   LANServerPort: 0
   PublishPort: 20000
   ServerPort: 0
-  _username: 
---- !u!4 &496211630
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 496211628}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &515576443
 GameObject:
   m_ObjectHideFlags: 0
@@ -2516,7 +2527,7 @@ MonoBehaviour:
   m_Script: {fileID: 1576325847, guid: 0ae8d181602a00248a82f64a684a1c88, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Multiplayer: {fileID: 496211629}
+  Multiplayer: {fileID: 0}
   _uidString: bbcf8bd0-fecb-4785-bb50-1ca4f1557f32
   BucketBehaviors:
   - Name: Min
@@ -2534,9 +2545,11 @@ MonoBehaviour:
   - Name: Max
     NetLOD: 4
     Frequency: 500
+  Reliability: 2
   SyncEveryNUpdates: 2
   FullSyncEveryNSync: 4
   SendData: 1
+  ApplyAsTransform: 0
   AllowCollisionToAssumeOwner: 1
   Rigidbody: {fileID: 1552384421}
 --- !u!54 &1552384421
@@ -2567,7 +2580,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03169460f0cf4774955801dc82254cde, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Multiplayer: {fileID: 496211629}
+  Multiplayer: {fileID: 0}
   _uidString: 7ea7572d-f80c-49ec-b261-ee492152d9fd
   Hand: {fileID: 0}
   Locked: 0
@@ -4699,7 +4712,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a871a6b00efbe754ea12ca67f5210d05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Multiplayer: {fileID: 496211629}
+  Multiplayer: {fileID: 0}
 --- !u!1001 &2954378772580536169
 PrefabInstance:
   m_ObjectHideFlags: 0

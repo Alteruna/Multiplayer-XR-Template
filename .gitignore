@@ -78,5 +78,8 @@ crashlytics-build.properties
 /[Pp]ackages/com.unity.asset-store-tools/*
 
 # Alteruna files
-/[Aa]ssets/[Aa]lteruna/*
+/[Aa]ssets/[Aa]lteruna
 /[Aa]ssets/[Aa]lteruna.meta
+
+/[Aa]ssets/[Tt]extMesh Pro
+/[Aa]ssets/[Tt]extMesh Pro.meta

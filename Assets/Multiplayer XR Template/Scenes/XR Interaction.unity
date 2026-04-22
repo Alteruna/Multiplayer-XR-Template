@@ -38,7 +38,6 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 1815318736}
-  m_IndirectSpecularColor: {r: 0.59937525, g: 0.5997512, b: 0.59948856, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -396,8 +395,11 @@ MonoBehaviour:
   - Name: Max
     NetLOD: 4
     Frequency: 500
+  Reliability: 2
   UseGlobalPosition: 0
+  OnlySyncFromRoomOwner: 0
   refreshRate: 30
+  SyncedAxes: 511
 --- !u!1 &182771087 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2335518041841423208, guid: f6336ac4ac8b4d34bc5072418cdc62a0,
@@ -841,7 +843,7 @@ MonoBehaviour:
   m_Script: {fileID: 1576325847, guid: 0ae8d181602a00248a82f64a684a1c88, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Multiplayer: {fileID: 978248252}
+  Multiplayer: {fileID: 0}
   _uidString: 59037f0e-b5b8-42f2-abac-69d3cc163397
   BucketBehaviors:
   - Name: Min
@@ -859,9 +861,11 @@ MonoBehaviour:
   - Name: Max
     NetLOD: 4
     Frequency: 500
+  Reliability: 2
   SyncEveryNUpdates: 2
   FullSyncEveryNSync: 4
   SendData: 1
+  ApplyAsTransform: 0
   AllowCollisionToAssumeOwner: 1
   Rigidbody: {fileID: 520486549}
 --- !u!1 &547229427
@@ -1110,7 +1114,7 @@ MonoBehaviour:
   m_Script: {fileID: 1576325847, guid: 0ae8d181602a00248a82f64a684a1c88, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Multiplayer: {fileID: 978248252}
+  Multiplayer: {fileID: 0}
   _uidString: 6c9b9388-1143-4ae3-a470-68fdb198461d
   BucketBehaviors:
   - Name: Min
@@ -1128,9 +1132,11 @@ MonoBehaviour:
   - Name: Max
     NetLOD: 4
     Frequency: 500
+  Reliability: 2
   SyncEveryNUpdates: 2
   FullSyncEveryNSync: 4
   SendData: 1
+  ApplyAsTransform: 0
   AllowCollisionToAssumeOwner: 1
   Rigidbody: {fileID: 604447084}
 --- !u!1 &650025388
@@ -1265,6 +1271,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
+  m_VertexColorAlwaysGammaSpace: 0
   m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
   m_SortingOrder: 0
@@ -1305,8 +1312,11 @@ MonoBehaviour:
   - Name: Max
     NetLOD: 4
     Frequency: 500
+  Reliability: 2
   UseGlobalPosition: 0
+  OnlySyncFromRoomOwner: 0
   refreshRate: 30
+  SyncedAxes: 511
 --- !u!114 &729832030
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1467,6 +1477,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
+  m_VertexColorAlwaysGammaSpace: 0
   m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
   m_SortingOrder: 0
@@ -2413,8 +2424,11 @@ MonoBehaviour:
   - Name: Max
     NetLOD: 4
     Frequency: 500
+  Reliability: 2
   UseGlobalPosition: 0
+  OnlySyncFromRoomOwner: 0
   refreshRate: 30
+  SyncedAxes: 511
 --- !u!114 &877397275
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2427,7 +2441,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b9f84a7226b4ca29409c31575778abd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Multiplayer: {fileID: 978248252}
+  Multiplayer: {fileID: 0}
   _uidString: 4337edb5-7fc1-48cb-bcb7-7626c9929909
   Reliability: 1
   LocalMethodBehavior: 1
@@ -2606,7 +2620,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40532175eef116445aaaaee4b04d3a73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Multiplayer: {fileID: 978248252}
+  Multiplayer: {fileID: 0}
   _uidString: f4e80ade-fd8d-46fa-9a77-853da6b4eb3e
   Reliability: 1
   LocalMethodBehavior: 1
@@ -2718,7 +2732,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 978248253}
-  - component: {fileID: 978248252}
+  - component: {fileID: 978248254}
   m_Layer: 0
   m_Name: Multiplayer
   m_TagString: Untagged
@@ -2726,7 +2740,22 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &978248252
+--- !u!4 &978248253
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 978248251}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &978248254
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2735,7 +2764,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 978248251}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 1777794829, guid: 0ae8d181602a00248a82f64a684a1c88, type: 3}
+  m_Script: {fileID: 731237287, guid: 0ae8d181602a00248a82f64a684a1c88, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   LogLevel: 1
@@ -2755,12 +2784,16 @@ MonoBehaviour:
   - Name: Max
     NetLOD: 4
     Users: 
-  _maxPlayers: 10
+  _maxPlayers: 20
+  ConnectOnStart: 1
   AvatarSpawning: 1
   AvatarPrefab: {fileID: 729832031}
   AvatarSpawnLocation: {fileID: 0}
   SpawnAvatarPerIndex: 0
   AvatarSpawnLocations: []
+  OnStarted:
+    m_PersistentCalls:
+      m_Calls: []
   OnConnected:
     m_PersistentCalls:
       m_Calls: []
@@ -2768,6 +2801,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   OnNetworkError:
+    m_PersistentCalls:
+      m_Calls: []
+  OnRoomCreated:
     m_PersistentCalls:
       m_Calls: []
   OnRoomJoined:
@@ -2809,6 +2845,9 @@ MonoBehaviour:
   OnForceSynced:
     m_PersistentCalls:
       m_Calls: []
+  OnForceSync:
+    m_PersistentCalls:
+      m_Calls: []
   OnRpcReceived:
     m_PersistentCalls:
       m_Calls: []
@@ -2816,6 +2855,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   OnRpcRegistered:
+    m_PersistentCalls:
+      m_Calls: []
+  OnForceSyncReply:
     m_PersistentCalls:
       m_Calls: []
   DevClientIndex: 0
@@ -2831,22 +2873,6 @@ MonoBehaviour:
   LANServerPort: 0
   PublishPort: 20000
   ServerPort: 0
-  _username: 
---- !u!4 &978248253
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 978248251}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1014857018
 GameObject:
   m_ObjectHideFlags: 0
@@ -3014,8 +3040,11 @@ MonoBehaviour:
   - Name: Max
     NetLOD: 4
     Frequency: 500
+  Reliability: 2
   UseGlobalPosition: 0
+  OnlySyncFromRoomOwner: 0
   refreshRate: 30
+  SyncedAxes: 511
 --- !u!114 &1042948420
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3028,7 +3057,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b9f84a7226b4ca29409c31575778abd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Multiplayer: {fileID: 978248252}
+  Multiplayer: {fileID: 0}
   _uidString: ca380902-0d12-4074-94d9-4b8e01137520
   Reliability: 1
   LocalMethodBehavior: 1
@@ -3075,7 +3104,7 @@ MonoBehaviour:
   m_Script: {fileID: 1576325847, guid: 0ae8d181602a00248a82f64a684a1c88, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Multiplayer: {fileID: 978248252}
+  Multiplayer: {fileID: 0}
   _uidString: eec6350c-0458-4dd8-bc0c-aa3f7db938f3
   BucketBehaviors:
   - Name: Min
@@ -3093,9 +3122,11 @@ MonoBehaviour:
   - Name: Max
     NetLOD: 4
     Frequency: 500
+  Reliability: 2
   SyncEveryNUpdates: 2
   FullSyncEveryNSync: 4
   SendData: 1
+  ApplyAsTransform: 0
   AllowCollisionToAssumeOwner: 1
   Rigidbody: {fileID: 1153184444}
 --- !u!1 &1202312658
@@ -3304,6 +3335,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
+  m_VertexColorAlwaysGammaSpace: 0
   m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
   m_SortingOrder: 0
@@ -3617,7 +3649,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40532175eef116445aaaaee4b04d3a73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Multiplayer: {fileID: 978248252}
+  Multiplayer: {fileID: 0}
   _uidString: 451cf0d4-549c-40ce-aa8b-ae1943ebdada
   Reliability: 1
   LocalMethodBehavior: 1
@@ -3750,7 +3782,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40532175eef116445aaaaee4b04d3a73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Multiplayer: {fileID: 978248252}
+  Multiplayer: {fileID: 0}
   _uidString: 63a51c0a-2314-4377-aff5-d6a0c8293736
   Reliability: 1
   LocalMethodBehavior: 1
@@ -9385,7 +9417,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5952238ccd887e46964b8e53ac9b692, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Multiplayer: {fileID: 978248252}
+  Multiplayer: {fileID: 0}
   EnableStatusForOwner: 0
 --- !u!1 &1807497889
 GameObject:
@@ -9776,6 +9808,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
+  m_VertexColorAlwaysGammaSpace: 0
   m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
   m_SortingOrder: 0
@@ -9885,7 +9918,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b78b6c6b70c0a8f4c9b48bde21200a0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Multiplayer: {fileID: 978248252}
+  Multiplayer: {fileID: 0}
 --- !u!4 &1942565185
 Transform:
   m_ObjectHideFlags: 0
@@ -9925,7 +9958,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ffdf11a6dc7c3642a6ac29d66198a2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Multiplayer: {fileID: 978248252}
+  Multiplayer: {fileID: 0}
 --- !u!1 &196977305468683332
 GameObject:
   m_ObjectHideFlags: 0
@@ -10176,6 +10209,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
+  m_VertexColorAlwaysGammaSpace: 0
   m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
   m_SortingOrder: 0
@@ -11603,6 +11637,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
+  m_VertexColorAlwaysGammaSpace: 0
   m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
   m_SortingOrder: 0

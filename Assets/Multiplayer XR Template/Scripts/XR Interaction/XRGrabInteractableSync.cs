@@ -1,4 +1,4 @@
-﻿using System;
+﻿using Alteruna.Multiplayer;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
 
@@ -10,12 +10,12 @@ namespace Alteruna
 	{
 		private XRGrabInteractable _grabInteractable;
 		private RigidbodySynchronizable _rigidbody;
-		
+
 		private void Start()
 		{
 			_grabInteractable = GetComponent<XRGrabInteractable>();
 			_rigidbody = GetComponent<RigidbodySynchronizable>();
-			
+
 			_grabInteractable.selectEntered.AddListener(OnSelectEntered);
 			_grabInteractable.selectExited.AddListener(OnSelectExited);
 		}

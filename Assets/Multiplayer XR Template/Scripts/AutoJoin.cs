@@ -1,11 +1,12 @@
+using Alteruna.Multiplayer;
+
 namespace Alteruna
 {
-    public class AutoJoin : CommunicationBridge
-    {
-        void Start()
-        {
-            Multiplayer.JoinFirstAvailable();
-        }
-    }
+	public class AutoJoin : CommunicationBridge
+	{
+		private void Start()
+		{
+			Multiplayer.JoinFirstAvailable();
+		}
+	}
 }
-

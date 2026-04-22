@@ -9,12 +9,12 @@ both examples allow the players to interact with the world by grabbing objects.
 
 ## Requirements
 The following is a list of requirements to make the template run.
-* Alteruna SDK 1.3.1 or above.
+* Alteruna Multiplayer 2.0.1 or above.
 * Unity 2021.3 or above.
 
 ## Documentation
 
-For detailed documentation and guides on how to use the Alteruna Multiplayer, refer to the [Alteruna documentation](https://alteruna.github.io/au-multiplayer-api-docs). The documentation provides step-by-step instructions and explanations of various features.
+For detailed documentation and guides on how to use the Alteruna Multiplayer, refer to the [Alteruna documentation](https://docs.v2.alteruna.com). The documentation provides step-by-step instructions and explanations of various features.
 
 ## Support and Community
 

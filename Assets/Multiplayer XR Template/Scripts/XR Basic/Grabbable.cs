@@ -1,72 +1,60 @@
-using System;
-using Alteruna.Trinity;
+using Alteruna.Multiplayer;
+using Alteruna.Multiplayer.Core;
+using Alteruna.Multiplayer.Core.MethodArguments;
 using UnityEngine;
 
 namespace Alteruna
 {
-    public class Grabbable : CommunicationBridgeUID
-    {
-        [HideInInspector]
-        public CommunicationBridge Hand;
-        public bool Locked;
-        private Rigidbody _rb;
+	public class Grabbable : CommunicationBridgeUID
+	{
+		[HideInInspector] public CommunicationBridge Hand;
 
-        private void Awake()
-        {
-            _rb = GetComponent<Rigidbody>();
-        }
+		public bool Locked;
+		private Rigidbody _rb;
 
-        public bool Grab(CommunicationBridge hand)
-        {
-            if (Locked) return false;
-            Hand = hand;
-            Locked = true;
-            if (_rb != null)
-            {
-                _rb.isKinematic = true;
-            }
+		private void Awake()
+		{
+			_rb = GetComponent<Rigidbody>();
+		}
 
-            transform.parent = hand.transform;
-            return true;
-        }
-        
-        public void Release()
-        {
-            if (!Locked) return;
-            Hand = null;
-            Locked = false;
-            transform.parent = null;
-            if (_rb != null)
-            {
-                _rb.isKinematic = false;
-            }
-        }
-        
-        public void Release(Vector3 pos, Vector3 rot, Vector3 vel)
-        {
-            if (!Locked) return;
-            Hand = null;
-            Locked = false;
-            var t = transform;
-            t.parent = null;
-            t.position = pos;
-            t.eulerAngles = rot;
-            if (_rb != null)
-            {
-                _rb.isKinematic = false;
-                _rb.velocity = vel;
-            }
-        }
-        
-        public override void Serialize(ITransportStreamWriter processor, byte level, bool forceSync = false)
-        {
-            
-        }
+		public bool Grab(CommunicationBridge hand)
+		{
+			if (Locked) return false;
+			Hand = hand;
+			Locked = true;
+			if (_rb != null) _rb.isKinematic = true;
 
-        public override void Unserialize(ITransportStreamReader processor, byte level, uint length)
-        {
-            
-        }
-    }
+			transform.parent = hand.transform;
+			return true;
+		}
+
+		public void Release()
+		{
+			if (!Locked) return;
+			Hand = null;
+			Locked = false;
+			transform.parent = null;
+			if (_rb != null) _rb.isKinematic = false;
+		}
+
+		public void Release(Vector3 pos, Vector3 rot, Vector3 vel)
+		{
+			if (!Locked) return;
+			Hand = null;
+			Locked = false;
+			var t = transform;
+			t.parent = null;
+			t.position = pos;
+			t.eulerAngles = rot;
+			if (_rb != null)
+			{
+				_rb.isKinematic = false;
+				_rb.velocity = vel;
+			}
+		}
+
+		public override void Serialize(ITransportStreamWriter processor, SerializeInfo info) { }
+
+		public override void Unserialize(ITransportStreamReader processor, UnserializeInfo info) { }
+	}
 }
-

@@ -1,3 +1,5 @@
+using Alteruna.Multiplayer;
+using Alteruna.Multiplayer.EventArgument;
 using UnityEngine;
 
 namespace Alteruna
@@ -5,13 +7,12 @@ namespace Alteruna
 	[RequireComponent(typeof(Canvas))]
 	public class CanvasCameraFix : CommunicationBridge
 	{
-		
-		void Start()
+		private void Start()
 		{
 			Multiplayer.OnRoomJoined.AddListener(RoomJoined);
 		}
 
-		private void RoomJoined(Multiplayer arg0, Room arg1, User arg2)
+		private void RoomJoined(RoomJoinedEvent _)
 		{
 			GetComponent<Canvas>().worldCamera = Camera.main;
 		}

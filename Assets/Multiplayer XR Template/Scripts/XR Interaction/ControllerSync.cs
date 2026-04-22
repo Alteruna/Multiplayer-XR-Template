@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using Alteruna.Multiplayer;
+using Alteruna.Multiplayer.Core;
 using UnityEngine;
 
 namespace Alteruna
@@ -8,7 +9,19 @@ namespace Alteruna
 		public GameObject ControllerPrefab;
 		public GameObject[] ObjectsToRemoveWhenNotOwned;
 
-		bool _sync = false;
+		private bool _sync;
+
+		private new void OnEnable()
+		{
+			base.OnEnable();
+
+			if (_sync) InvokeRemoteMethod(0, UserId.All, true);
+		}
+
+		private void OnDisable()
+		{
+			if (_sync) InvokeRemoteMethod(0, UserId.All, false);
+		}
 
 		public override void Possessed(bool isMe, User user)
 		{
@@ -18,37 +31,13 @@ namespace Alteruna
 			}
 			else
 			{
-				foreach (GameObject obj in ObjectsToRemoveWhenNotOwned)
-				{
+				foreach (var obj in ObjectsToRemoveWhenNotOwned)
 					if (obj != null)
-					{
 						Destroy(obj);
-					}
-				}
+
 				ObjectsToRemoveWhenNotOwned = null;
 
-				if (ControllerPrefab != null)
-				{
-					Instantiate(ControllerPrefab, transform);
-				}
-			}
-		}
-
-		private void OnDisable()
-		{
-			if (_sync)
-			{
-				InvokeRemoteMethod(0, UserId.All, false);
-			}
-		}
-
-		private new void OnEnable()
-		{
-			base.OnEnable();
-
-			if (_sync)
-			{
-				InvokeRemoteMethod(0, UserId.All, true);
+				if (ControllerPrefab != null) Instantiate(ControllerPrefab, transform);
 			}
 		}
 
