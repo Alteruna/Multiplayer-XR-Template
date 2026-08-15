@@ -1,7 +1,7 @@
-using Alteruna.Multiplayer;
+using Alteruna.Multiplayer.Unity;
 using Alteruna.Multiplayer.Core;
 using UnityEngine;
-using Avatar = Alteruna.Multiplayer.Avatar;
+using Avatar = Alteruna.Multiplayer.Unity.Avatar;
 
 namespace Alteruna
 {

@@ -10,7 +10,7 @@
         "com.unity.inputsystem": "1.7.0",
         "com.unity.nuget.newtonsoft-json": "3.2.1"
       },
-      "hash": "c1aa39ea33e7db86e1e41c5bbaa98d30c7ac3f4f"
+      "hash": "9286f83a841cfc27b0a2384d829ec8fa917dc8fa"
     },
     "com.unity.asset-store-tools": {
       "version": "file:com.unity.asset-store-tools",

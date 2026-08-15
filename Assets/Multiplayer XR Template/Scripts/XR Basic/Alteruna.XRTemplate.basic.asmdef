@@ -4,7 +4,8 @@
   "references": [
     "Unity.InputSystem",
     "Unity.XR.Management",
-    "Unity.XR.Management.Editor"
+    "Unity.XR.Management.Editor",
+    "com.alteruna.multiplayer"
   ],
   "includePlatforms": [],
   "excludePlatforms": [],
